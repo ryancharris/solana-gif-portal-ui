@@ -27,6 +27,10 @@
   color: white;
 }
 
+.text {
+  color: white;
+}
+
 .sub-text {
   font-size: 25px;
   color: white;
@@ -111,7 +115,7 @@
   object-fit: cover;
 }
 
-.connected-container input[type='text'] {
+.connected-container input[type="text"] {
   display: inline-block;
   color: white;
   padding: 10px;
