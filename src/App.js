@@ -1,11 +1,29 @@
-import twitterLogo from './assets/twitter-logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import twitterLogo from "./assets/twitter-logo.svg";
+import "./App.css";
 
 // Constants
-const TWITTER_HANDLE = '_buildspace';
+const TWITTER_HANDLE = "ryan_c_harris";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
+  const checkForWallet = async () => {
+    try {
+      const { solana } = window;
+
+      if (solana.isPhantom) console.log("Phantom connected!");
+      else console.log("Solana not found!");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("load", async (event) => {
+      await checkForWallet();
+    });
+  }, []);
+
   return (
     <div className="App">
       <div className="container">
