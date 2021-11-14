@@ -60,7 +60,7 @@ const App = () => {
         className="cta-button connect-wallet-button"
         onClick={connectWallet}
       >
-        Connect to Wallet
+        Connect Phantom
       </button>
     );
   };
@@ -114,6 +114,7 @@ const App = () => {
 
         console.log("Successfully sent GIF!");
         await getGifList();
+        setInputValue("");
       } catch (error) {
         console.log("Error sending GIF: ", error);
       }
@@ -128,7 +129,7 @@ const App = () => {
             className="cta-button submit-gif-button"
             onClick={createGifAccount}
           >
-            Do One-Time Initialization For GIF Program Account
+            Launch App
           </button>
         </div>
       );
@@ -199,17 +200,23 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <p className="header">🖼 GIF Portal</p>
-          <p className="sub-text">
-            View your GIF collection in the metaverse ✨
+          <p className="header">
+            <span className="about-the">it's about the </span>
+            <span className="vibes">
+              <mark>#vibes</mark>
+            </span>
           </p>
+        </div>
+        <div className="body-container">
           {!address && renderUnconnectedContainer()}
           {address && (
             <>
-              <p className="text">
-                address: {address.slice(0, 2)}...{address.slice(-4)}
-              </p>
               {renderConnectedContainer()}
+              <div className="connected-avatar">
+                <span className="connected-address">
+                  {address.slice(0, 4)}...{address.slice(-4)}
+                </span>
+              </div>
             </>
           )}
         </div>
@@ -220,7 +227,7 @@ const App = () => {
             href={TWITTER_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
+          >{`built by @${TWITTER_HANDLE}`}</a>
         </div>
       </div>
     </div>
